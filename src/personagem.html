@@ -11,62 +11,148 @@
     <link rel="stylesheet" href="assets/css/main.css" />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Projeto A </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="personagem.html">Personagem </a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="poderes.html">Poderes</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
 
     <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <div class="card">
-            <div class="card-body">
-              Filtros
+      <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="#">Projeto A </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="personagem.html">Personagem </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="poderes.html">Poderes</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-7">
+          <div class="card mb-3">
+            <div class="card-body text-center">
+              <h5 class="card-title">Filtros</h5>
+              <input type="text" id="searchCharacter" placeholder="Nome" />
+              <input type="number" id="yearsCharacter" placeholder="Idade" />
+              <div class="btn-group">
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-sm dropdown-toggle"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Cor do Cabelo
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item">Preto</a>
+                  <a class="dropdown-item">Branco</a>
+                  <a class="dropdown-item">Cinza</a>
+                  <a class="dropdown-item">Castanho</a>
+                  <a class="dropdown-item">Vermelho</a>
+                  <a class="dropdown-item">Loiro</a>
+                  <a class="dropdown-item">Azul</a>
+                </div>
+              </div>
+              <div class="btn-group">
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-sm dropdown-toggle"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Raça
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item">Humano</a>
+                  <a class="dropdown-item">Vampiro</a>
+                  <a class="dropdown-item">Lobisomem</a>
+                  <a class="dropdown-item">Sereia</a>
+                  <a class="dropdown-item">Anjo</a>
+                  <a class="dropdown-item">Alien</a>
+                  <a class="dropdown-item">Furry</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-5 ">
-          <div class="card">
-            <div class="card-body">
-              Filtro/Remover/Importar/Exportar
+        <div class="col-4 ">
+          <div class="card mb-3">
+            <div class="card-body text-center">
+              <h5 class="card-title">Ações</h5>
+              <button class="btn btn-secondary btn-sm" id="btnInsert">
+                Inserir
+              </button>
+              <button class="btn btn-secondary btn-sm" id="btnRemove">
+                Remover
+              </button>
+              <button class="btn btn-secondary btn-sm" id="btnImport">
+                Importar
+              </button>
+              <button class="btn btn-secondary btn-sm" id="btnExport">
+                Exportar
+              </button>
             </div>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-5">
           <div class="card">
-            <div class="card-body">
-              Lista de Personagem - Nome-Idade-CordoCabelo-Etnia
+            <div class="card-body text-center">
+              <h5 class="card-title">Lista de Personagens</h5>
+              <div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <td>Idade</td>
+                            <td>Cor do Cabelo</td>
+                            <td>Raça</td>
+                        </tr>
+                    </thead>
+                    <tbody id="mainTable">
+                        <tr>
+                            <td>18</td>
+                            <td>Ruivo</td>
+                            <td>Humano</td>
+                        </tr>
+                    </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
+
+
+
         <div class="col-6">
-            <div class="car">
-                Informações do Personagem
+          <div class="card">
+            <div class="card-body">
+                <h5 class="card-title text-center">Informações do Personagem</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Idade: </li>
+                    <li class="list-group-item">Cor do Cabelo: </li>
+                    <li class="list-group-item">Raça: </li>
+                    <li class="list-group-item">Altura: </li>
+                    <li class="list-group-item">Descrição: </li>
+                  </ul>
             </div>
+          </div>
         </div>
       </div>
     </div>
+
 
 
   </body>
