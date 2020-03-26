@@ -27,35 +27,35 @@ const generateTableRow = (id, data) => {
 let characters = [
     {
         name: "Pedro",
-        years: 0,
+        years: 20,
         breed: "Humano",
-        sex: "Homem",
-        height: "2,10",
-        description: "Carlos é bala"
+        sex: "Masculino",
+        height: "1,68",
+        description: "Pedro é chave"
     },
     {
-        name: "Pedro",
-        years: 1,
-        breed: "Humano",
-        sex: "Homem",
-        height: "2,10",
-        description: "Carlos é bala"
+        name: "Ricardo",
+        years: 10,
+        breed: "Vampiro",
+        sex: "Masculino",
+        height: "1,70",
+        description: "Ricardo é bala"
     },
     {
-        name: "Pedro",
-        years: 2,
-        breed: "Humano",
-        sex: "Homem",
-        height: "2,10",
-        description: "Carlos é bala"
+        name: "Victoria",
+        years: 32,
+        breed: "Slime",
+        sex: "Feminino",
+        height: "1,65",
+        description: "Victoria é pika"
     },
     {
-        name: "Pedro",
+        name: "Mirela",
         years: 3,
-        breed: "Humano",
-        sex: "Homem",
-        height: "2,10",
-        description: "Carlos é bala"
+        breed: "Lobo",
+        sex: "Feminino",
+        height: "0,50",
+        description: "Mirela é foda "
     },
 ];
 
@@ -137,4 +137,16 @@ document.getElementById("btnExport").addEventListener("click", () =>{
         encodeURIComponent(JSON.stringify(characters));
         element.setAttribute("download", "listadepersonagem.json");
     element.click();
+});
+
+// FILTRO
+
+$(document).ready(function(){
+    $("#filterCharacters").on("keyup", function() {
+      let value = $(this).val().toLowerCase();
+      $("#mainTable tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        
+      });
+    });
 });
