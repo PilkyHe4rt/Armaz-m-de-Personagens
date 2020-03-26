@@ -1,156 +1,216 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>projeto A - Personagens</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/main.css" />
-  </head>
-  <body>
 
-    <div class="container">
-      <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <a class="navbar-brand" href="index.html">Projeto A </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="personagem.html">Personagem </a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="poderes.html">Poderes</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-7">
-          <div class="card mb-3">
-            <div class="card-body text-center">
-              <h5 class="card-title">Filtros</h5>
-              <input type="number" id="yearsCharacter" placeholder="Idade" />
-              <div class="btn-group">
-                <button
-                  type="button"
-                  class="btn btn-secondary btn-sm dropdown-toggle"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Cor do Cabelo
-                </button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item">Preto</a>
-                  <a class="dropdown-item">Branco</a>
-                  <a class="dropdown-item">Cinza</a>
-                  <a class="dropdown-item">Castanho</a>
-                  <a class="dropdown-item">Vermelho</a>
-                  <a class="dropdown-item">Loiro</a>
-                  <a class="dropdown-item">Azul</a>
-                </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>projeto A - Personagens</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body>
+  <!--HEADER-->
+  <div class="container">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">Projeto A </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="personagem.html">Personagem </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="poderes.html">Poderes</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!--BODY-->
+  <div class="container">
+    <div class="row justify-content-center">
+      <!--FILTRO-->
+      <div class="col-8">
+        <div class="card mb-3">
+          <div class="card-body text-center">
+            <h5 class="card-title">Filtros</h5>
+            <input type="text" id="nameCharacter" placeholder="Nome" />
+            <input type="number" id="yearsCharacter" placeholder="Idade" />
+            <input type="text" id="breedCharacter" placeholder="Raça" />
+            <div class="btn-group">
+              <button type="button" id="sexCharacter" class="btn btn-secondary btn-sm dropdown-toggle"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sexo
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item">Homem</a>
+                <a class="dropdown-item">Mulher</a>
+                <a class="dropdown-item">Outros</a>
               </div>
-              <div class="btn-group">
-                <button
-                  type="button"
-                  class="btn btn-secondary btn-sm dropdown-toggle"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Raça
-                </button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item">Humano</a>
-                  <a class="dropdown-item">Vampiro</a>
-                  <a class="dropdown-item">Lobisomem</a>
-                  <a class="dropdown-item">Sereia</a>
-                  <a class="dropdown-item">Anjo</a>
-                  <a class="dropdown-item">Alien</a>
-                  <a class="dropdown-item">Furry</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-4 ">
-          <div class="card mb-3">
-            <div class="card-body text-center">
-              <h5 class="card-title">Ações</h5>
-              <button class="btn btn-secondary btn-sm" id="btnInsert">
-                Inserir
-              </button>
-              <button class="btn btn-secondary btn-sm" id="btnRemove">
-                Remover
-              </button>
-              <button class="btn btn-secondary btn-sm" id="btnImport">
-                Importar
-              </button>
-              <button class="btn btn-secondary btn-sm" id="btnExport">
-                Exportar
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="col-5">
-          <div class="card">
-            <div class="card-body text-center">
-              <h5 class="card-title">Lista de Personagens</h5>
-              <div>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <td>Idade</td>
-                            <td>Cor do Cabelo</td>
-                            <td>Raça</td>
-                        </tr>
-                    </thead>
-                    <tbody id="mainTable">
-                        <tr>
-                            <td>18</td>
-                            <td>Ruivo</td>
-                            <td>Humano</td>
-                        </tr>
-                    </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="card">
-            <div class="card-body">
-                <h5 class="card-title text-center">Informações do Personagem</h5>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Idade: </li>
-                    <li class="list-group-item">Cor do Cabelo: </li>
-                    <li class="list-group-item">Raça: </li>
-                    <li class="list-group-item">Altura: </li>
-                    <li class="list-group-item">Descrição: </li>
-                  </ul>
             </div>
           </div>
         </div>
       </div>
+      <!--BOTÕES DE AÇÃO-->
+      <div class="col-4 ">
+        <div class="card mb-2">
+          <div class="card-body text-center">
+            <h5 class="card-title">Ações</h5>
+            <button class="btn btn-secondary btn-sm" id="btnInsert" data-toggle="modal" data-target="#addModal">
+              Inserir
+            </button>
+            <button class="btn btn-secondary btn-sm" id="btnRemove">
+              Remover
+            </button>
+            <label class="btn btn-secondary btn-sm" for="btnImport"">
+              Importar
+            </label>
+            <button class=" btn btn-secondary btn-sm" id="btnExport">
+              Exportar
+              </button>
+              <a href="#" id="download" target="_blank" class="d-none"></a>
+              <input type="file" name="nameInput" id="btnImport" class="d-none" accept=".json" />
+          </div>
+        </div>
+
+
+      </div>
+      <!--LISTA DE PERSONAGENS-->
+      <div class="col-5">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Lista de Personagens</h5>
+            <div>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <td>Nome</td>
+                    <td>Idade</td>
+                    <td>Raça</td>
+                    <td>Sexo</td>
+                  </tr>
+                </thead>
+                <tbody id="mainTable">
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--INFORMAÇÕES DE PERSONAGENS-->
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center">Informações do Personagem</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                Nome: <span id="resultName"> Julio </span>
+              </li>
+              <li class="list-group-item">
+                Idade: <span id="resultYears"> 18 </span>
+              </li>
+              <li class="list-group-item" ">
+                Raça: <span id=" resultBreed"> Humano </span>
+              </li>
+              <li class="list-group-item">
+                Sexo: <span id=" resultSex"> Homem </span>
+              </li>
+              <li class="list-group-item">
+                Altura: <span id="resultHeight"> 1,80m </span>
+              </li>
+              <li class="list-group-item"">
+                  Descrição: <span id=" resultDesc"> Homem com mais de dois metros, tem pele negra e seus
+                cabelos são longos até o meio das costas. Tem um corpo músculo, caracteristico de tanks
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-  </body>
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <script src="assets/js/main.js"></script>
+  </div>
+
+
+  <!-- MODAL DO INSERIR -->
+  <div class="modal fade" id="addModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Ficha do Personagem</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="formInsert">
+            <div class="form-group">
+              <label for="inputName"> Nome do persoangem </label>
+              <input type="text" class="form-control" id="inputName" />
+              <small class="form-text text-muted">
+                Coloque o nome do personagem. Caso não tenha coloque "-". </small>
+            </div>
+            <div class="form-group">
+              <label for="inputYears"> Idade do personagem </label>
+              <input type="number" class="form-control" id="inputYears" />
+              <small class="form-text text-muted">
+                Coloque a idade do personagem. Caso não tenha coloque "-". </small>
+            </div>
+            <div class="form-group">
+              <label for="inputSex">Sexo do personagem</label>
+              <select class="form-control" id="inputSex">
+                <option>-</option>
+                <option>Masculino</option>
+                <option>Feminino</option>
+                <option>Outros</option>
+              </select>
+              <small class="form-text text-muted">
+                Coloque o sexo do personagem. Caso não tenha, coloque "-".</small>
+            </div>
+            <div class="form-group">
+              <label for="inputBreed"> Raça do personagem </label>
+              <input type="text" class="form-control" id="inputBreed" />
+              <small class="form-text text-muted">
+                Coloque a Raça do personagem. Caso não tenha coloque "-". </small>
+            </div>
+            <div class="form-group">
+              <label for="inputHeight"> Altura do personagem </label>
+              <input type="number" class="form-control" id="inputHeight" />
+              <small class="form-text text-muted">
+                Coloque a Altura do personagem. Caso não tenha coloque "-". </small>
+            </div>
+            <div class="form-group">
+              <label for="inputDesc"> Descrição da aparência do personagem </label>
+              <input type="text" class="form-control" id="inputDesc" />
+              <small class="form-text text-muted">
+                Coloque a Descrição do personagem. Esse campo é obrigatório. </small>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Fechar
+          </button>
+          <button type="submit" class="btn btn-danger" id="btnFinishCharacter">
+            Salvar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="assets/js/main.js"></script>
+
 </html>
