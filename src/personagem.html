@@ -34,29 +34,16 @@
   <div class="container">
     <div class="row justify-content-center">
       <!--FILTRO-->
-      <div class="col-8">
+      <div class="col-6">
         <div class="card mb-3">
           <div class="card-body text-center">
-            <h5 class="card-title">Filtros</h5>
-            <input type="text" id="nameCharacter" placeholder="Nome" />
-            <input type="number" id="yearsCharacter" placeholder="Idade" />
-            <input type="text" id="breedCharacter" placeholder="Raça" />
-            <div class="btn-group">
-              <button type="button" id="sexCharacter" class="btn btn-secondary btn-sm dropdown-toggle"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Sexo
-              </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item">Homem</a>
-                <a class="dropdown-item">Mulher</a>
-                <a class="dropdown-item">Outros</a>
-              </div>
-            </div>
+            <h5 class="card-title">Filtro</h5>
+            <input class="form-control" type="text" autocomplete="off" id="filterCharacters" placeholder="Característica do Personagem"/>
           </div>
         </div>
       </div>
       <!--BOTÕES DE AÇÃO-->
-      <div class="col-4 ">
+      <div class="col-5 ">
         <div class="card mb-2">
           <div class="card-body text-center">
             <h5 class="card-title">Ações</h5>
@@ -123,7 +110,7 @@
                 Raça: <span id=" resultBreed"> Humano </span>
               </li>
               <li class="list-group-item">
-                Sexo: <span id=" resultSex"> Homem </span>
+                Sexo: <span id=" resultSex"> Masculino </span>
               </li>
               <li class="list-group-item">
                 Altura: <span id="resultHeight"> 1,80m </span>
