@@ -1,16 +1,13 @@
-
 // GERAR LINHA NA TABELA
 const generateTableRow = (id, data) => {
     return `
         <tr onclick="selectRow(event)"  data-index="${id}">
             <td>${data.name}</td>
-            <td>${data.years}</td>
-            <td>${data.sex}</td>  
-            <td>${data.breed}</td>          
+            <td>${data.type}</td>
+            <td>${data.category}</td>  
         </tr>
     `;
 }
-
 //SELECIONAR LINHA NA TABELA
 const selectRow = event => {
     let rows = document.getElementsByTagName("tr");
@@ -20,35 +17,34 @@ const selectRow = event => {
     event.target.parentNode.classList.add("table-active");
 
 };
-
-
-
-
-
-let characters = [
+let powers = [
     {
-        name: "Pedro",
-        years: 20,
-        sex: "Masculino",
-        breed: "Humano",
-        height: "1,68",
-        description: "Pedro tem cabelos loiros e olhos angulares."
+        name: "Balista",
+        type: "Emissor",
+        category: "Mecânica",
+        user: "Paulo",
+        reach: "Longo Alcance",
+        rarity: "3 Estrelas",
+        description: "O usuário consegue fazer uma balista com suas mãos "
+
     },
     {
-        name: "Luiza",
-        years: 12,
-        sex: "Feminino",
-        breed: "Sapo",
-        height: "1,80",
-        description: "Luiza não lava o pé poq n que"
+        name: "Chamas no ombro",
+        type: "Emissor",
+        category: "Fogo",
+        user: "Bia",        
+        reach: "Curto Alcance",
+        rarity: "2 Estrelas",
+        description: "O usuário consegue fazer chamas sairem de seus ombros"
     },
     {
-        name: "Igor",
-        years: 28,
-        sex: "Masculino",
-        breed: "Vampiro",
-        height: "1,20",
-        description: "Igor é um vampiro de cabelos brancos "
+        name: "Sombras Eternas",
+        type: "Emissor",
+        category: "Sobrenatural",
+        user: "Corvo",
+        reach: "Contato",
+        rarity: "5 Estrelas",
+        description: "O usuário consegue entrar na mente e fazer o adversário ver os piores pesadelos"
     }
 ];
 
@@ -58,8 +54,8 @@ let characters = [
 const refreshTable = () =>{
     let table = document.getElementById('mainTable')
     table.innerHTML = "";
-    characters.forEach((character, i) => {
-        let row = generateTableRow(i, character);
+    powers.forEach((power, i) => {
+        let row = generateTableRow(i, power);
         table.insertAdjacentHTML('beforeend', row);
     });
 
@@ -68,7 +64,7 @@ const refreshTable = () =>{
 // CADASTRO DOS PERSONAGENS - BOTÃO INSERIR/CADASTRA
 const init = () => refreshTable();
 init();
-document.getElementById('btnFinishCharacter').addEventListener('click', e =>{
+document.getElementById('btnFinishPower').addEventListener('click', e =>{
     e.preventDefault();
 
     let inputName = document.getElementById("inputName");
@@ -77,7 +73,7 @@ document.getElementById('btnFinishCharacter').addEventListener('click', e =>{
     let inputBreed = document.getElementById("inputBreed");
     let inputHeight = document.getElementById("inputHeight");
     let inputDesc = document.getElementById("inputDesc");
-    let character = {
+    let power = {
         name: inputName.value,
         years: parseInt(inputYears.value),
         sex: inputSex.value,
@@ -86,7 +82,7 @@ document.getElementById('btnFinishCharacter').addEventListener('click', e =>{
         description: inputDesc.value
     };
     document.getElementById("formInsert").reset();
-    characters.push(character);
+    powers.push(power);
     refreshTable();
     $("#addModal").modal("toggle");
 });
@@ -101,7 +97,7 @@ document.getElementById("btnRemove").addEventListener("click", e => {
         return false;
     }
     let index = parseInt(rows[0].getAttribute("data-index"));
-    characters = characters.filter((data, i) => i !== index);
+    powers = powers.filter((data, i) => i !== index);
     refreshTable();
 }); 
 
@@ -113,7 +109,7 @@ document.getElementById("btnImport").addEventListener("change", e =>{
     reader.readAsText(file);
     reader.onloadend = () => {
         let result = JSON.parse(reader.result);
-        characters = result;
+        powers = result;
         refreshTable();
     };
 });
@@ -123,7 +119,7 @@ document.getElementById("btnExport").addEventListener("click", () =>{
     let element = document.getElementById("download");
     element.href = 
         "data:text/plain;charset=utf-8," + 
-        encodeURIComponent(JSON.stringify(characters));
+        encodeURIComponent(JSON.stringify(powers));
         element.setAttribute("download", "listadepersonagem.json");
     element.click();
 });
@@ -131,7 +127,7 @@ document.getElementById("btnExport").addEventListener("click", () =>{
 // FILTRO
 
 $(document).ready(function(){
-    $("#filterCharacters").on("keyup", function() {
+    $("#filterPowers").on("keyup", function() {
       let value = $(this).val().toLowerCase();
       $("#mainTable tr").filter(function() {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
@@ -143,7 +139,7 @@ $(document).ready(function(){
 
 
 // LEVAR JSON PARA LISTA   
-document.getElementById("btnTeste").addEventListener("click", e => {
+document.getElementById("btnInfo").addEventListener("click", e => {
     e.preventDefault();
     let rows = document.getElementsByClassName("table-active");
     if(!rows.length) {
@@ -151,10 +147,11 @@ document.getElementById("btnTeste").addEventListener("click", e => {
         return false;
     }
     let list = parseInt(rows[0].getAttribute("data-index"));
-    document.getElementById("resultName").innerHTML = characters[list].name;
-    document.getElementById("resultYears").innerHTML = characters[list].years
-    document.getElementById("resultSex").innerHTML = characters[list].sex
-    document.getElementById("resultBreed").innerHTML = characters[list].breed
-    document.getElementById("resultHeight").innerHTML = characters[list].height
-    document.getElementById("resultDesc").innerHTML = characters[list].description
+    document.getElementById("resultName").innerHTML = powers[list].name
+    document.getElementById("resultType").innerHTML = powers[list].type
+    document.getElementById("resultCategory").innerHTML = powers[list].category
+    document.getElementById("resultRarity").innerHTML = powers[list].rarity
+    document.getElementById("resultUser").innerHTML = powers[list].user
+    document.getElementById("resultReach").innerHTML = powers[list].reach
+    document.getElementById("resultDesc").innerText = powers[list].description
 });
