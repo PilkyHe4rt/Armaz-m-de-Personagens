@@ -18,34 +18,7 @@ const selectRow = event => {
 
 };
 let powers = [
-    {
-        name: "Balista",
-        type: "Emissor",
-        category: "Mecânica",
-        user: "Paulo",
-        reach: "Longo Alcance",
-        rarity: "3 Estrelas",
-        description: "O usuário consegue fazer uma balista com suas mãos "
 
-    },
-    {
-        name: "Chamas no ombro",
-        type: "Emissor",
-        category: "Fogo",
-        user: "Bia",        
-        reach: "Curto Alcance",
-        rarity: "2 Estrelas",
-        description: "O usuário consegue fazer chamas sairem de seus ombros"
-    },
-    {
-        name: "Sombras Eternas",
-        type: "Emissor",
-        category: "Sobrenatural",
-        user: "Corvo",
-        reach: "Contato",
-        rarity: "5 Estrelas",
-        description: "O usuário consegue entrar na mente e fazer o adversário ver os piores pesadelos"
-    }
 ];
 
 
@@ -68,17 +41,17 @@ document.getElementById('btnFinishPower').addEventListener('click', e =>{
     e.preventDefault();
 
     let inputName = document.getElementById("inputName");
-    let inputYears = document.getElementById("inputYears");
-    let inputSex = document.getElementById("inputSex");
-    let inputBreed = document.getElementById("inputBreed");
-    let inputHeight = document.getElementById("inputHeight");
+    let inputType = document.getElementById("inputType");
+    let inputCategory = document.getElementById("inputCategory");
+    let inputUser = document.getElementById("inputUser");
+    let inputRarity = document.getElementById("inputRarity");
     let inputDesc = document.getElementById("inputDesc");
     let power = {
         name: inputName.value,
-        years: parseInt(inputYears.value),
-        sex: inputSex.value,
-        breed: inputBreed.value,
-        height: inputHeight.value,
+        type: inputType.value,
+        category: inputCategory.value,
+        user: inputUser.value,
+        rarity: inputRarity.value,
         description: inputDesc.value
     };
     document.getElementById("formInsert").reset();
@@ -120,7 +93,7 @@ document.getElementById("btnExport").addEventListener("click", () =>{
     element.href = 
         "data:text/plain;charset=utf-8," + 
         encodeURIComponent(JSON.stringify(powers));
-        element.setAttribute("download", "listadepersonagem.json");
+        element.setAttribute("download", "listadepoderes.json");
     element.click();
 });
 
