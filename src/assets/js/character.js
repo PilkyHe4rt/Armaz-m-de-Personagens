@@ -1,6 +1,15 @@
-//
-// BOTÕES DE AÇÕES 
 
+// GERAR LINHA NA TABELA
+const generateTableRow = (id, data) => {
+    return `
+        <tr onclick="selectRow(event)"  data-index="${id}">
+            <td>${data.name}</td>
+            <td>${data.years}</td>
+            <td>${data.sex}</td>  
+            <td>${data.breed}</td>          
+        </tr>
+    `;
+}
 
 //SELECIONAR LINHA NA TABELA
 const selectRow = event => {
@@ -9,55 +18,41 @@ const selectRow = event => {
         row.className = "";
     }
     event.target.parentNode.classList.add("table-active");
+
 };
 
 
-// GERADOR DE LINHA NA TABELA
-const generateTableRow = (id, data) => {
-    return `
-        <tr onclick="selectRow(event)" data-index="${id}">
-            <td>${data.name}</td>
-            <td>${data.years}</td>
-            <td>${data.breed}</td>
-            <td>${data.sex}</td>
-        </tr>
-    `;
-}
+
+
 
 let characters = [
     {
         name: "Pedro",
         years: 20,
+        sex: "Masculino",
         breed: "Humano",
-        sex: "Masculino",
         height: "1,68",
-        description: "Pedro é chave"
+        description: "Pedro tem cabelos loiros e olhos angulares."
     },
     {
-        name: "Ricardo",
-        years: 10,
-        breed: "Vampiro",
+        name: "Luiza",
+        years: 12,
+        sex: "Feminino",
+        breed: "Sapo",
+        height: "1,80",
+        description: "Luiza não lava o pé poq n que"
+    },
+    {
+        name: "Igor",
+        years: 28,
         sex: "Masculino",
-        height: "1,70",
-        description: "Ricardo é bala"
-    },
-    {
-        name: "Victoria",
-        years: 32,
-        breed: "Slime",
-        sex: "Feminino",
-        height: "1,65",
-        description: "Victoria é pika"
-    },
-    {
-        name: "Mirela",
-        years: 3,
-        breed: "Lobo",
-        sex: "Feminino",
-        height: "0,50",
-        description: "Mirela é foda "
-    },
+        breed: "Vampiro",
+        height: "1,20",
+        description: "Igor é um vampiro de cabelos brancos "
+    }
 ];
+
+
 
 // INSERINDO RESULTADOS NA TABELA 
 const refreshTable = () =>{
@@ -65,8 +60,9 @@ const refreshTable = () =>{
     table.innerHTML = "";
     characters.forEach((character, i) => {
         let row = generateTableRow(i, character);
-        table.insertAdjacentHTML('beforeend', row)
-    })
+        table.insertAdjacentHTML('beforeend', row);
+    });
+
 };
 
 // CADASTRO DOS PERSONAGENS - BOTÃO INSERIR/CADASTRA
@@ -89,14 +85,7 @@ document.getElementById('btnFinishCharacter').addEventListener('click', e =>{
         height: inputHeight.value,
         description: inputDesc.value
     };
-    document.getElementById("formInsert").reset(); 
-    
-   /*  let errors = [];
-    character.forEach(field => {
-        if(!field){
-            console.log("null");
-        }
-    }); */
+    document.getElementById("formInsert").reset();
     characters.push(character);
     refreshTable();
     $("#addModal").modal("toggle");
@@ -149,4 +138,23 @@ $(document).ready(function(){
         
       });
     });
+});
+
+
+
+// LEVAR JSON PARA LISTA   
+document.getElementById("btnTeste").addEventListener("click", e => {
+    e.preventDefault();
+    let rows = document.getElementsByClassName("table-active");
+    if(!rows.length) {
+        alert("Selecione um personagem para ver as informações");
+        return false;
+    }
+    let list = parseInt(rows[0].getAttribute("data-index"));
+    document.getElementById("resultName").innerHTML = characters[list].name
+    document.getElementById("resultYears").innerHTML = characters[list].years
+    document.getElementById("resultSex").innerHTML = characters[list].sex
+    document.getElementById("resultBreed").innerHTML = characters[list].breed
+    document.getElementById("resultHeight").innerHTML = characters[list].height
+    document.getElementById("resultDesc").innerHTML = characters[list].description
 });
