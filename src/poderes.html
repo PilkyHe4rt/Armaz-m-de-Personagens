@@ -1,176 +1,217 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>projeto A - Poderes</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/main.css" />
-  </head>
-  <body>
 
-    <div class="container">
-      <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <a class="navbar-brand" href="index.html">Projeto A </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="personagem.html">Personagem </a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="poderes.html">Poderes</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-7">
-          <div class="card mb-3">
-            <div class="card-body text-center">
-              <h5 class="card-title">Filtros</h5>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>projeto A - Poderes</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
 
-              <div class="btn-group">
-                <button
-                  type="button"
-                  class="btn btn-secondary btn-sm dropdown-toggle"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Tipo
-                </button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item">Emissão</a>
-                  <a class="dropdown-item">Transformação</a>
-                  <a class="dropdown-item">Mutante</a>
+<body>
 
-                </div>
-              </div>             
-              <div class="btn-group">
-                <button
-                  type="button"
-                  class="btn btn-secondary btn-sm dropdown-toggle"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Categorias
-                </button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item">Elemental</a>
-                  <a class="dropdown-item">Físico</a>
-                  <a class="dropdown-item">Mental</a>
-                  <a class="dropdown-item">Autacapacidade</a>
-                  <a class="dropdown-item">Feral</a>
-                  <a class="dropdown-item">Super Habilidade</a>
-                  <a class="dropdown-item">Especial</a>
-                  <a class="dropdown-item">Psíquico</a>
-                  <a class="dropdown-item">Energia</a>
-                  <a class="dropdown-item">Magia</a>
-                  <a class="dropdown-item">Supernatural</a>
-                  
-                </div>
-              </div>
-              <div class="btn-group">
-                <button
-                  type="button"
-                  class="btn btn-secondary btn-sm dropdown-toggle"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Raridade
-                </button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item">1 Estrela</a>
-                  <a class="dropdown-item">2 Estrela</a>
-                  <a class="dropdown-item">3 Estrela</a>
-                  <a class="dropdown-item">4 Estrela</a>
-                  <a class="dropdown-item">5 Estrela</a>
-                </div>
-              </div>
-            </div>
+  <!--HEAD-->
+  <div class="container">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">Projeto A </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="personagem.html">Personagem </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="poderes.html">Poderes</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!--BOD-->
+  <div class="container">
+    <div class="row justify-content-center">
+
+      <!--FILTRO-->
+      <div class="col-7">
+        <div class="card mb-3">
+          <div class="card-body text-center">
+            <h5 class="card-title">Filtros</h5>
+            <input class="form-control" type="text" autocomplete="off" id="filterPowers" placeholder="Dados do Poder" />
           </div>
         </div>
-        <div class="col-4 ">
-          <div class="card mb-3">
-            <div class="card-body text-center">
-              <h5 class="card-title">Ações</h5>
-              <button class="btn btn-secondary btn-sm" id="btnInsert">
-                Inserir
+      </div>
+      <!--BOTÕES DE AÇÃO-->
+      <div class="col-5">
+        <div class="card mb-3">
+          <div class="card-body text-center">
+            <h5 class="card-title">Ações</h5>
+            <button class="btn btn-secondary btn-sm" id="btnInsert" data-toggle="modal" data-target="#addModal">
+              Inserir
+            </button>
+            <button class="btn btn-secondary btn-sm" id="btnRemove">
+              Remover
+            </button>
+            <label class="btn btn-secondary btn-sm" for="btnImport"">
+              Importar
+            </label>
+            <button class=" btn btn-secondary btn-sm" id="btnExport">
+              Exportar
               </button>
-              <button class="btn btn-secondary btn-sm" id="btnRemove">
-                Remover
+              <button class=" btn btn-secondary btn-sm" id="btnInfo">
+                +Info
               </button>
-              <button class="btn btn-secondary btn-sm" id="btnImport">
-                Importar
-              </button>
-              <button class="btn btn-secondary btn-sm" id="btnExport">
-                Exportar
-              </button>
-            </div>
+              <a href="#" id="download" target="_blank" class="d-none"></a>
+              <input type="file" name="nameInput" id="btnImport" class="d-none" accept=".json" />
           </div>
         </div>
-        <div class="col-5">
-          <div class="card">
-            <div class="card-body text-center">
-              <h5 class="card-title">Lista de Poderes</h5>
-              <div>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <td>Tipo</td>
-                            <td>Categoria</td>
-                            <td>Raridade</td>
-                        </tr>
-                    </thead>
-                    <tbody id="mainTable">
-                        <tr>
-                            <td>Emissaõ</td>
-                            <td>Elemental</td>
-                            <td>3 Estrelas</td>
-                        </tr>
-                    </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="card">
-            <div class="card-body">
-                <h5 class="card-title text-center">Informações do Personagem</h5>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Nome: </li>
-                    <li class="list-group-item">Tipo: </li>
-                    <li class="list-group-item">Categoria: </li>
-                    <li class="list-group-item">Raridade: </li>
-                    <li class="list-group-item">Descrição: </li>
-                  </ul>
+      </div>
+      <!--TABELA DE PODERES-->
+      <div class="col-5">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Lista de Poderes</h5>
+            <div>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Nome</th>
+                    <th>Tipo</th>
+                    <th>Categoria</th>
+                  </tr>
+                </thead>
+                <tbody id="mainTable">
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       </div>
+      <!--INFO DOS PODERES-->
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center">Informações do Personagem</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                Nome: <span id="resultName"></span>
+              </li>
+              <li class="list-group-item">
+                Tipo: <span id="resultType"></span>
+              </li>
+              <li class="list-group-item">
+                Categoria: <span id="resultCategory"></span>
+              </li>
+              <li class="list-group-item">
+                Raridade: <span id="resultRarity"></span>
+              </li>
+              <li class="list-group-item">
+                Usuário(s): <span id="resultUser"></span>
+              </li>
+              <li class="list-group-item">
+                Alcance: <span id="resultReach"></span>
+              </li>
+              <li class="list-group-item">
+                Descrição: <span id="resultDesc"></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </body>
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <script src="assets/js/main.js"></script>
+  </div>
+  <!-- MODAL DO INSERIR -->
+  <div class="modal fade" id="addModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Ficha do Poder</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="formInsert">
+            <div class="form-group">
+              <label for="inputName"> Nome do poder </label>
+              <input type="text" class="form-control" id="inputName" />
+              <small class="form-text text-muted">
+                Coloque o nome do poder. Caso não tenha coloque "-". Ex: Final Flash, Sombras Negras etc </small>
+            </div>
+            <div class="form-group">
+              <label for="inputType"> Tipo do poder </label>
+              <input type="number" class="form-control" id="inputType" />
+              <small class="form-text text-muted">
+                Coloque o tipo de poder. Esse campo é obrigatório. Ex: Emissão, Mutante, Transormação. </small>
+            </div>
+            <div class="form-group">
+              <label for="inputCategory"> Categoria de poder </label>
+              <input type="text" class="form-control" id="inputCategory" />
+              <small class="form-text text-muted">
+                Coloque a categoria do poder. Esse campo é obrigatório. Ex: Fogo, Água, Terra, Mecânico, Sobrenatural.
+              </small>
+            </div>
+            <div class="form-group">
+              <label for="inputRarity">Raridade do poder</label>
+              <select class="form-control" id="inputRarity">
+                <option>-</option>
+                <option>1 Estrela</option>
+                <option>2 Estrelas</option>
+                <option>3 Estrelas</option>
+                <option>4 Estrelas</option>
+                <option>5 Estrelas</option>
+              </select>
+              <small class="form-text text-muted">
+                Coloque a raridade do poder. Caso não tenha decidido coloque "-". Ex: 1 estrela, muitas pessoas tem. 5
+                estrelas somente um usuário ou dois tem.</small>
+            </div>
+            <div class="form-group">
+              <label for="inputUser"> Usuário(s) </label>
+              <input type="number" class="form-control" id="inputUser" />
+              <small class="form-text text-muted">
+                Coloque o(s) usuário(s) do poder. Caso não tenha coloque "-". </small>
+            </div>
+            <div class="form-group">
+              <label for="inputReach"> Descrição da aparência do personagem </label>
+              <input type="text" class="form-control" id="inputReach" />
+              <small class="form-text text-muted">
+                Coloque o alcance do poder. CAso não tenha decidido coloque "-". Ex: Contato, curto ou longo alcance.
+              </small>
+            </div>
+            <div class="form-group">
+              <label for="inputDesc"> Descrição da aparência do personagem </label>
+              <input type="text" class="form-control" id="inputDesc" />
+              <small class="form-text text-muted">
+                Coloque a Descrição do poder. Esse campo é obrigatório. Ex: Como funciona, como ativa, como fica mais
+                forte etc. </small>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Fechar
+          </button>
+          <button type="submit" class="btn btn-danger" id="btnFinishPower">
+            Salvar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="assets/js/powers.js"></script>
+
 </html>
