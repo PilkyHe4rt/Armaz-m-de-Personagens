@@ -1,19 +1,26 @@
 p {
     font-family: "Lucida Console", Courier, monospace;
 }
-
-footer {
-    padding: 20px 0px 0px 0px;
-    background-color: #d65858  !important;
-    text-align: center;
- /*    font-family: "Lucida Console", Courier, monospace;
-    font-size: 23px; */
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-
-  
-  footer a:hover {
+h5 {
+    font-family: "Lucida Console", Courier, monospace;
+}
+input {
+    font-family: "Lucida Console", Courier, monospace;
+}
+th{
+    font-family: "Lucida Console", Courier, monospace;
+}
+td{
+    font-family: "Lucida Console", Courier, monospace;
+}
+li{
+    font-family: "Lucida Console", Courier, monospace;
+}
+button{
+    font-family: "Lucida Console", Courier, monospace;
+}
+header a:hover {
     text-decoration: none;
-  }
+}
+
+;

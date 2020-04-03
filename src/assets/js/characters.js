@@ -118,6 +118,11 @@ document.getElementById("btnImport").addEventListener("change", e =>{
     };
 });
 
+//LABEL
+document.getElementById("labelImport").addEventListener("click", () => {
+    document.getElementById("btnImport").click();
+});
+
 // EXPORTANDO JSON - BOTÃO EXPORTAR
 document.getElementById("btnExport").addEventListener("click", () =>{
     let element = document.getElementById("download");
