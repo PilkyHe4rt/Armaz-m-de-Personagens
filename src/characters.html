@@ -11,31 +11,38 @@
 
 <body>
   <!--HEADER-->
-  <div class="container">
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-      <a class="navbar-brand" href="index.html">Projeto A </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #d65858;">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="https://imgur.com/wbhgGow.png" class="rounded float-left" style="width: 300px" />
+      </a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="personagem.html">Personagem </a>
+            <a class="nav-link" href="#">
+              <img src=https://imgur.com/pVfryuY.png" style="width: 170px" />
+            </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="poderes.html">Poderes</a>
+            <a class="nav-link" href="powers.html">
+              <img src="https://imgur.com/tpm8tAU.png" style="width: 170px" />
+            </a>
           </li>
         </ul>
+        <span class="navbar-text">
+          <a href="https://twitter.com/pilkyhe4rt" target="_blank">
+            <img src="https://imgur.com/e2OpukH.png" style="width: 150px">
+          </a>
+        </span>
       </div>
-    </nav>
-  </div>
+    </div>
+  </nav>
   <!--BODY-->
   <div class="container">
     <div class="row justify-content-center">
       <!--FILTRO-->
       <div class="col-6">
-        <div class="card mb-3">
+        <div class="card mb-3 mt-2">
           <div class="card-body text-center">
             <h5 class="card-title">Filtro</h5>
             <input class="form-control" type="text" autocomplete="off" id="filterCharacters" placeholder="Característica do Personagem"/>
@@ -43,23 +50,28 @@
         </div>
       </div>
       <!--BOTÕES DE AÇÃO-->
-      <div class="col-5 ">
-        <div class="card mb-2">
+      <div class="col-5">
+        <div class="card mb-2 mt-2">
           <div class="card-body text-center">
             <h5 class="card-title">Ações</h5>
-            <button class="btn btn-secondary btn-sm" id="btnInsert" data-toggle="modal" data-target="#addModal">
+            <button class="btn btn-secondary btn-sm" id="btnInsert" data-toggle="modal" data-target="#addModal"
+            style= "background-color: #e37878;  border: none;">
               Inserir
             </button>
-            <button class="btn btn-secondary btn-sm" id="btnRemove">
+            <button class="btn btn-secondary btn-sm" id="btnRemove"
+            style= "background-color: #e37878;  border: none;">
               Remover
             </button>
-            <label class="btn btn-secondary btn-sm" for="btnImport"">
-              Importar
-            </label>
-            <button class=" btn btn-secondary btn-sm" id="btnExport">
+            <button class="btn btn-secondary btn-sm" id="labelImport"
+            style= "background-color: #e37878;  border: none;">
+              Importar 
+            </button>
+            <button class=" btn btn-secondary btn-sm" id="btnExport"
+            style= "background-color: #e37878;  border: none;">
               Exportar
             </button>
-            <button class=" btn btn-secondary btn-sm" id="btnTeste" data-toggle="modal" data-target="#infoModal">
+            <button class=" btn btn-secondary btn-sm" id="btnTeste" data-toggle="modal" data-target="#infoModal"
+            style= "background-color: #e37878;  border: none;">
               +Info
             </button>
               <a href="#" id="download" target="_blank" class="d-none"></a>
@@ -104,22 +116,22 @@
             <h5 class="card-title text-center">Informações do Personagem</h5>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
-                Nome: <span id="resultName"></span>
+                <b>Nome:</b> <span id="resultName"></span>
               </li>
               <li class="list-group-item">
-                Idade: <span id="resultYears"></span>
+                <b>Idade</b> <span id="resultYears"></span>
               </li>
               <li class="list-group-item">
-                Sexo: <span id="resultSex"></span>
+                <b>Sexo:</b> <span id="resultSex"></span>
               </li>
               <li class="list-group-item" ">
-                Raça: <span id="resultBreed"></span>
+                <b> Raça:</b> <span id="resultBreed"></span>
               </li>
               <li class="list-group-item">
-                Altura: <span id="resultHeight"></span>
+                <b>Altura:</b> <span id="resultHeight"></span>
               </li>
               <li class="list-group-item"">
-                Descrição: <span id="resultDesc"></span>
+                <b>Descrição:</b> <span id="resultDesc"></span>
               </li>
             </ul>
           </div>
@@ -194,6 +206,7 @@
     </div>
   </div>
 
+ 
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
