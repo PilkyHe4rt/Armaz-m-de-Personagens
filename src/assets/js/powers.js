@@ -43,15 +43,17 @@ document.getElementById('btnFinishPower').addEventListener('click', e =>{
     let inputName = document.getElementById("inputName");
     let inputType = document.getElementById("inputType");
     let inputCategory = document.getElementById("inputCategory");
-    let inputUser = document.getElementById("inputUser");
     let inputRarity = document.getElementById("inputRarity");
+    let inputUser = document.getElementById("inputUser");
+    let inputReach = document.getElementById("inputReach");
     let inputDesc = document.getElementById("inputDesc");
     let power = {
         name: inputName.value,
         type: inputType.value,
         category: inputCategory.value,
-        user: inputUser.value,
         rarity: inputRarity.value,
+        user: inputUser.value,
+        reach: inputReach.value,
         description: inputDesc.value
     };
     document.getElementById("formInsert").reset();
@@ -85,6 +87,11 @@ document.getElementById("btnImport").addEventListener("change", e =>{
         powers = result;
         refreshTable();
     };
+});
+
+//LABEL
+document.getElementById("labelImport").addEventListener("click", () => {
+    document.getElementById("btnImport").click();
 });
 
 // EXPORTANDO JSON - BOTÃO EXPORTAR
