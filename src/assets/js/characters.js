@@ -118,6 +118,11 @@ document.getElementById("btnImport").addEventListener("change", e =>{
     };
 });
 
+//LABEL
+document.getElementById("labelImport").addEventListener("click", () => {
+    document.getElementById("btnImport").click();
+});
+
 // EXPORTANDO JSON - BOTÃO EXPORTAR
 document.getElementById("btnExport").addEventListener("click", () =>{
     let element = document.getElementById("download");
@@ -151,7 +156,7 @@ document.getElementById("btnTeste").addEventListener("click", e => {
         return false;
     }
     let list = parseInt(rows[0].getAttribute("data-index"));
-    document.getElementById("resultName").innerHTML = characters[list].name
+    document.getElementById("resultName").innerHTML = characters[list].name;
     document.getElementById("resultYears").innerHTML = characters[list].years
     document.getElementById("resultSex").innerHTML = characters[list].sex
     document.getElementById("resultBreed").innerHTML = characters[list].breed
